@@ -10,14 +10,14 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use FOS\RestBundle\Controller\Annotations\Route;
 
 
 class AssociationController extends ApiController {
 
     /**
      * @Route("/", name="homepage", options={"expose"=true})
-     * @Method({"GET", "POST"})
      */
     public function indexAction()
     {
