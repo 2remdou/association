@@ -1,0 +1,5 @@
+app:
+    resource: "@AppBundle/Controller/AssociationController.php"
+    type:     rest
+    options:
+        expose: true
