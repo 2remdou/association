@@ -11,9 +11,9 @@ namespace AppBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Commune;
+use AppBundle\Entity\Poste;
 
-class LoadCommuneData extends AbstractFixture implements  OrderedFixtureInterface {
+class LoadPosteData extends AbstractFixture implements  OrderedFixtureInterface {
 
     /**
      * Load data fixtures with the passed EntityManager
@@ -23,15 +23,15 @@ class LoadCommuneData extends AbstractFixture implements  OrderedFixtureInterfac
     public function load(ObjectManager $manager)
     {
         // TODO: Implement load() method.
-        $communes = array('Matoto','Matam','Kaloum','Ratoma');
-        foreach($communes as $key => $commune ){
-            $com = new Commune();
-            $com->setLibelleCommune($commune);
+        $postes = array('President','Vice-president','Secretaire','Cordinateur','membre');
+        foreach($postes as $key => $p ){
+            $poste = new Poste();
+            $poste->setLibellePoste($p);
 
-            $manager->persist($com);
+            $manager->persist($poste);
             $manager->flush();
 
-            $this->addReference('commune'.$key,$com);
+            $this->addReference('poste'.$key,$poste);
         }
     }
 
@@ -43,6 +43,6 @@ class LoadCommuneData extends AbstractFixture implements  OrderedFixtureInterfac
     public function getOrder()
     {
         // TODO: Implement getOrder() method.
-        return 1;
+        return 3;
     }
 }

@@ -11,10 +11,11 @@ namespace AppBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Commune;
+use AppBundle\Entity\Poste;
 use AppBundle\Entity\Quartier;
+use AppBundle\Entity\Membre;
 
-class LoadQuartierData extends AbstractFixture implements OrderedFixtureInterface{
+class LoadMembreData extends AbstractFixture implements OrderedFixtureInterface{
 
     /**
      * Load data fixtures with the passed EntityManager
@@ -25,25 +26,45 @@ class LoadQuartierData extends AbstractFixture implements OrderedFixtureInterfac
     {
         // TODO: Implement load() method.
 
-        $quartiers = array(
-            2 => 'Sandervalia',
-            0 => 'Yimbaya',
-            1 => 'Madina',
-            3 => 'Kipe',
-            0 => 'Simbaya',
-            0 => 'Lansanaya'
+        $membres = array(
+            array(
+                'nom' => 'Toure',
+                'prenom' => 'Mamadou',
+                'telephone' => '777777',
+                'email' => 'aad@ggg.com',
+                'poste' => 2,
+                'quartier' => 1
+            ),
+            array(
+                'nom' => 'camara',
+                'prenom' => 'Sekou',
+                'telephone' => '777777',
+                'email' => 'aad@ggg.com',
+                'poste' => 1,
+                'quartier' => 3
+            ),
+            array(
+                'nom' => 'Cisse',
+                'prenom' => 'Lamine',
+                'telephone' => '777777',
+                'email' => 'aad@ggg.com',
+                'poste' => 4,
+                'quartier' => 2
+            ),
         );
-        $i = 0;
-        foreach($quartiers as $key=>$q){
-            $quartier = new Quartier();
-            $quartier->setLibelleQuartier($q);
-            $quartier->setCommune($this->getReference('commune'.$key));
+        foreach($membres as $key=>$m){
+            $membre = new Membre();
+            $membre->setNomMembre($m['nom']);
+            $membre->setPrenomMembre($m['prenom']);
+            $membre->setTelephone($m['telephone']);
+            $membre->setEmail($m['email']);
+            $membre->setPoste($this->getReference('poste'.$m['poste']));
+            $membre->setQuartier($this->getReference('quartier'.$m['quartier']));
 
-            $manager->persist($quartier);
+            $manager->persist($membre);
             $manager->flush();
 
-            $this->addReference('quartier'.$i,$quartier);
-            $i++;
+            $this->addReference('membre'.$key,$membre);
         }
     }
 
@@ -55,6 +76,6 @@ class LoadQuartierData extends AbstractFixture implements OrderedFixtureInterfac
     public function getOrder()
     {
         // TODO: Implement getOrder() method.
-        return 2;
+        return 4;
     }
 }

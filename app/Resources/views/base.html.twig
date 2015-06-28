@@ -3,11 +3,46 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% stylesheets filter='cssrewrite'
+            '@AppBundle/Resources/public/js/bower_components/bootstrap/dist/css/bootstrap.min.css'
+            '@AppBundle/Resources/public/js/app/styles/main.css'
+            output='css/compiled/main.css'
+            %}
+            <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+
+        {% javascripts
+                '@AppBundle/Resources/public/js/bower_components/jquery/dist/jquery.js'
+                '@AppBundle/Resources/public/js/bower_components/angular/angular.min.js'
+                '@AppBundle/Resources/public/js/bower_components/angular-route/angular-route.min.js'
+                '@AppBundle/Resources/public/js/bower_components/lodash/lodash.min.js'
+                '@AppBundle/Resources/public/js/bower_components/restangular/dist/restangular.min.js'
+                '@AppBundle/Resources/public/js/bower_components/bootstrap/dist/js/bootstrap.min.js'
+                '@AppBundle/Resources/public/js/app/scripts/app.js'
+                '@AppBundle/Resources/public/js/app/scripts/routing.js'
+                '@AppBundle/Resources/public/js/app/scripts/configRestangular.js'
+                '@AppBundle/Resources/public/js/app/scripts/services/Communes.js'
+                '@AppBundle/Resources/public/js/app/scripts/services/Postes.js'
+                '@AppBundle/Resources/public/js/app/scripts/services/Quartiers.js'
+                '@AppBundle/Resources/public/js/app/scripts/services/Membres.js'
+                '@AppBundle/Resources/public/js/app/scripts/controllers/mainController.js'
+                '@AppBundle/Resources/public/js/app/scripts/controllers/CommuneController.js'
+                '@AppBundle/Resources/public/js/app/scripts/controllers/QuartierController.js'
+                '@AppBundle/Resources/public/js/app/scripts/controllers/PosteController.js'
+                '@AppBundle/Resources/public/js/app/scripts/controllers/MembreController.js'
+
+
+            output='js/compiled/main.js'
+            %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <body ng-app="appAssociation">
+        {% block body %}
+
+        {% endblock %}
+
     </body>
 </html>

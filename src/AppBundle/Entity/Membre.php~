@@ -3,17 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use JMS\Serializer\Annotation\ExclusionPolicy;
-use JMS\Serializer\Annotation\Expose;
-use JMS\Serializer\Annotation\SerializedName;
 
 /**
  * Membre
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\MembreRepository")
- * @ExclusionPolicy("all")
  */
 class Membre
 {
@@ -23,8 +18,6 @@ class Membre
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Expose()
-     * @SerializedName("id")
      */
     private $id;
 
@@ -32,8 +25,6 @@ class Membre
      * @var string
      *
      * @ORM\Column(name="nomMembre", type="string", length=255)
-     * @Expose()
-     * @SerializedName("nomMembre")
      */
     private $nomMembre;
 
@@ -41,8 +32,6 @@ class Membre
      * @var string
      *
      * @ORM\Column(name="prenomMembre", type="string", length=255)
-     * @Expose()
-     * @SerializedName("prenomMembre")
      */
     private $prenomMembre;
 
@@ -50,8 +39,6 @@ class Membre
      * @var string
      *
      * @ORM\Column(name="telephone", type="string", length=255)
-     * @Expose()
-     * @SerializedName("telephone")
      */
     private $telephone;
 
@@ -59,24 +46,18 @@ class Membre
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
-     * @Expose()
-     * @SerializedName("email")
      */
     private $email;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Poste",inversedBy="membres")
      * @ORM\JoinColumn(nullable=false)
-     * @Expose()
-     * @SerializedName("poste")
      */
     private $poste;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Quartier",inversedBy="membres")
      * @ORM\JoinColumn(nullable=false)
-     * @Expose()
-     * @SerializedName("quartier")
      */
     private $quartier;
     /**
@@ -202,51 +183,5 @@ class Membre
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * Set poste
-     *
-     * @param \AppBundle\Entity\Poste $poste
-     * @return Membre
-     */
-    public function setPoste(\AppBundle\Entity\Poste $poste)
-    {
-        $this->poste = $poste;
-
-        return $this;
-    }
-
-    /**
-     * Get poste
-     *
-     * @return \AppBundle\Entity\Poste 
-     */
-    public function getPoste()
-    {
-        return $this->poste;
-    }
-
-    /**
-     * Set quartier
-     *
-     * @param \AppBundle\Entity\Quartier $quartier
-     * @return Membre
-     */
-    public function setQuartier(\AppBundle\Entity\Quartier $quartier)
-    {
-        $this->quartier = $quartier;
-
-        return $this;
-    }
-
-    /**
-     * Get quartier
-     *
-     * @return \AppBundle\Entity\Quartier 
-     */
-    public function getQuartier()
-    {
-        return $this->quartier;
     }
 }

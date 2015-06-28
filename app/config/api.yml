@@ -1,0 +1,23 @@
+sylius_resource:
+    settings:
+        paginate: false
+    resources:
+        app.commune:
+            driver: doctrine/orm
+            classes:
+                model: AppBundle\Entity\Commune
+                controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
+                repository: Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
+        app.poste:
+            driver: doctrine/orm
+            classes:
+                model: AppBundle\Entity\Poste
+        app.quartier:
+            driver: doctrine/orm
+            classes:
+                model: AppBundle\Entity\Quartier
+        app.membre:
+            driver: doctrine/orm
+            classes:
+                model: AppBundle\Entity\Membre
+

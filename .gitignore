@@ -25,6 +25,8 @@
 # Assets and user uploads
 /web/bundles/
 /web/uploads/
+/web/css
+/web/js
 
 # PHPUnit
 /app/phpunit.xml
@@ -35,3 +37,7 @@
 
 # Composer PHAR
 /composer.phar
+
+/src/AppBundle/Resources/public/js/bower_components
+/src/AppBundle/Resources/public/js/node_modules
+/.idea

@@ -1,5 +1,28 @@
-app:
+app_accueil:
     resource: "@AppBundle/Controller/AssociationController.php"
-    type:     rest
-    options:
-        expose: true
+    type: annotation
+
+app_commune:
+    resource: app.commune
+    type: sylius.api
+#    path: /communes
+    prefix: /api
+#    methods: [GET,POST,PUT,DELETE]
+
+app_poste:
+    resource: app.poste
+    type: sylius.api
+    prefix: /api
+#    methods: [GET,POST,PUT,DELETE]
+
+app_quartier:
+    resource: app.quartier
+    type: sylius.api
+    prefix: /api
+#    methods: [GET,POST,PUT,DELETE]
+
+app_membre:
+    resource: app.membre
+    type: sylius.api
+    prefix: /api
+#    methods: [GET,POST,PUT,DELETE]

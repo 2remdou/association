@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
 
-</body>
-</html>
+<form class="form-horizontal" name="formQuartier" ng-submit="save(method)">
+    <div class="form-group">
+        <label class="col-md-3 control-label" for="libelleQuartier">Nom du Quartier</label>
+        <div class="col-md-4">
+            <input id="libelleQuartier" type="text" class="form-control" ng-model="newQuartier.libelleQuartier" required/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 control-label" for="commune">La commune</label>
+        <div class="col-md-4">
+            <select class="form-control" id="commune" ng-model="newQuartier.commune"
+                    ng-options="commune.libelleCommune
+                         for commune in communes track by commune.id">
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-3 col-md-9">
+            <input type="submit" class="btn btn-default" value="Enregistrer" />
+        </div>
+    </div>
+
+</form>
+
+<div class="page-header">
+    <h1 id="tables">LISTE DES Quartier</h1>
+</div>
+<table class="table table-striped table-hover ">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Nom du quartier</th>
+        <th>Nom de la  commune</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="quartier in quartiers">
+        <td>{{$index}}</td>
+        <td>{{quartier.libelleQuartier}}</td>
+        <td>{{quartier.commune.libelleCommune}}</td>
+        <td>
+            <button href="#" class="btn btn-default" ng-click="editQuartier(quartier)"> Modifier</button>
+            <button href="#" class="btn btn-default" ng-click="deleteQuartier(quartier)"> Supprimer</button>
+        </td>
+    </tr>
+    </tbody>
+</table>

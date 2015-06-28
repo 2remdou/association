@@ -1,0 +1,39 @@
+
+<form class="form-horizontal" name="formCommune" ng-submit="save()">
+    <div class="form-group">
+        <label class="col-md-3 control-label" for="libelleCommune">Nom de la Commune</label>
+        <div class="col-md-4">
+            <input id="libelleCommune" type="text" class="form-control" ng-model="newCommune.libelleCommune" required/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-3 col-md-9">
+            <input type="submit" class="btn btn-default" value="Enregistrer"/>
+        </div>
+    </div>
+
+</form>
+
+<div class="page-header">
+    <h1 id="tables">LISTE DES COMMUNES</h1>
+</div>
+<table class="table table-striped table-hover ">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Nom de la  commune</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="commune in communes">
+        <td>{{$index}}</td>
+        <td>{{commune.libelleCommune}}</td>
+        <td>
+            <button class="btn btn-default" ng-click="editCommune(commune)"> Modifier</button>
+            <button class="btn btn-default" ng-click="deleteCommune(commune)"> Supprimer</button>
+        </td>
+    </tr>
+    </tbody>
+</table>

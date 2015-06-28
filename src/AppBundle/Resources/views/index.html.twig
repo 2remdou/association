@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="../" class="navbar-brand">Bootswatch</a>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Localisation <span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="download">
+                            <li><a href="#/communes">Commune</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#/quartiers">Quartier</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Bureau <span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="themes">
+                            <li><a href="#/postes">Poste</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#/membres">Membre</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div ng-view></div>
+    </div>
+
+{% endblock body %}
