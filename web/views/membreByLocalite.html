@@ -1,0 +1,52 @@
+
+<form class="form-horizontal" name="formQuartier" ng-submit="save()">
+    <div class="form-group">
+        <label class="col-md-3 control-label" for="commune">Selectionner une commune</label>
+        <div class="col-md-4">
+            <select class="form-control" id="commune" ng-model="commune"
+                    ng-options="commune.libelleCommune
+                         for commune in communes track by commune.id" ng-change="selectCommune(commune)">
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label" for="quartier">Selectionner un quartier</label>
+        <div class="col-md-4">
+            <select class="form-control" id="quartier" ng-model="quartier"
+                    ng-options="quartier.libelleQuartier
+                         for quartier in quartiers track by quartier.id">
+            </select>
+        </div>
+    </div>
+</form>
+
+<div class="page-header">
+    <h1 id="tables">LISTE DES MEMBRES</h1>
+</div>
+<table class="table table-striped table-hover ">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Nom </th>
+        <th>Prenom</th>
+        <th>Telephone</th>
+        <th>Email</th>
+        <th>Poste</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="membre in membres">
+        <td>{{$index+1}}</td>
+        <td>{{membre.nomMembre}}</td>
+        <td>{{membre.prenomMembre}}</td>
+        <td>{{membre.telephone}}</td>
+        <td>{{membre.email}}</td>
+        <td>{{membre.poste.libellePoste}}</td>
+        <td>
+            <button class="btn btn-default" ng-click="editCommune(commune)"> Modifier</button>
+            <button class="btn btn-default" ng-click="deleteCommune(commune)"> Supprimer</button>
+        </td>
+    </tr>
+    </tbody>
+</table>

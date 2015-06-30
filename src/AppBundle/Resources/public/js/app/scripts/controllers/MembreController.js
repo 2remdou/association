@@ -4,7 +4,7 @@
 
 app.controller('MembreController',['$scope','Quartiers','Postes','Membres','Communes',function ($scope,Quartiers,Postes,Membres,Communes) {
         $scope.postes = Postes.getList().$object;
-        $scope.quartiers = Quartiers.getList().$object;
+        //$scope.quartiers = Quartiers.getList().$object;
         $scope.membres = Membres.getList().$object;
         $scope.communes = Communes.getList().$object;
 
@@ -49,5 +49,9 @@ app.controller('MembreController',['$scope','Quartiers','Postes','Membres','Comm
 
         $scope.membres.splice($scope.membres.indexOf(membre),1);
     }
+
+    $scope.selectCommune=function(commune){
+        $scope.quartiers = commune.quartiers;
+    };
 
 }]);

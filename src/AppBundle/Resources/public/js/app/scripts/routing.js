@@ -25,6 +25,10 @@ app.config(function ($routeProvider) {
             templateUrl: '../views/membre.html',
             controller: 'MembreController'
         })
+        .when('/membreByLocalite', {
+            templateUrl: '../views/membreByLocalite.html',
+            controller: 'MembreByLocaliteController'
+        })
 
         .otherwise({
             redirectTo: '/'

@@ -41,6 +41,8 @@ class Commune
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Quartier",mappedBy="commune")
+     * @Expose()
+     * @SerializedName("quartiers")
      */
     private $quartiers;
 

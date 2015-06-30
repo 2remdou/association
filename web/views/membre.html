@@ -40,7 +40,7 @@
         <div class="col-md-4">
             <select class="form-control" id="commune" ng-model="commune"
                     ng-options="commune.libelleCommune
-                         for commune in communes track by commune.id">
+                         for commune in communes track by commune.id" ng-change="selectCommune(commune)">
             </select>
         </div>
     </div>
