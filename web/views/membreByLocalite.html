@@ -15,7 +15,7 @@
         <div class="col-md-4">
             <select class="form-control" id="quartier" ng-model="quartier"
                     ng-options="quartier.libelleQuartier
-                         for quartier in quartiers track by quartier.id">
+                         for quartier in quartiers track by quartier.id" ng-change="selectQuartier(quartier)">
             </select>
         </div>
     </div>
@@ -33,6 +33,7 @@
         <th>Telephone</th>
         <th>Email</th>
         <th>Poste</th>
+        <th>Quartier</th>
     </tr>
     </thead>
     <tbody>
@@ -43,10 +44,7 @@
         <td>{{membre.telephone}}</td>
         <td>{{membre.email}}</td>
         <td>{{membre.poste.libellePoste}}</td>
-        <td>
-            <button class="btn btn-default" ng-click="editCommune(commune)"> Modifier</button>
-            <button class="btn btn-default" ng-click="deleteCommune(commune)"> Supprimer</button>
-        </td>
+        <td>{{membre.quartier.libelleQuartier}}</td>
     </tr>
     </tbody>
 </table>
