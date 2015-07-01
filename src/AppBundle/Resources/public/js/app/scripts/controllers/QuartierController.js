@@ -10,9 +10,11 @@ app.controller('QuartierController', ['$scope','Communes','Quartiers',function (
     $scope.save = function(){
         var q = angular.copy($scope.newQuartier);
         if($scope.method === "PUT"){
+/*
             delete $scope.newQuartier.commune;
             $scope.newQuartier.commune = q.commune.id;
-            $scope.newQuartier.put().then(function(c){
+*/
+            angular.copy($scope.newQuartier).put().then(function(c){
                 $scope.newQuartier = {};
             });
 
@@ -20,9 +22,7 @@ app.controller('QuartierController', ['$scope','Communes','Quartiers',function (
         }
         else{
 
-            delete q.commune; // car l'api n'a besoin que de l'id de la commune
-            q.commune=$scope.newQuartier.commune.id;
-            Quartiers.post(q).then(function(c){
+            Quartiers.post(angular.copy($scope.newQuartier)).then(function(c){
                 $scope.quartiers.push($scope.newQuartier);
                 $scope.newQuartier = {};
             });
