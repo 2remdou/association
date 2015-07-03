@@ -10,28 +10,16 @@ app.controller('MembreController',['$scope','Quartiers','Postes','Membres','Comm
 
     
     $scope.save = function(method){
-        var m = angular.copy($scope.newMembre);
         if($scope.method === "PUT"){
-            delete $scope.newMembre.quartier;
-            delete $scope.newMembre.poste;
 
-            $scope.newMembre.quartier = m.quartier.id;
-            $scope.newMembre.poste = m.poste.id;
-
-            $scope.newMembre.put().then(function(c){
+            angular.copy($scope.newMembre).put().then(function(c){
                 $scope.newMembre = {};
             });
 
             $scope.method = "POST";
         }
         else{
-            delete m.quartier; // car l'api n'a besoin que de l'id de la commune
-            delete m.poste; // car l'api n'a besoin que de l'id du poste
-
-            m.quartier=$scope.newMembre.quartier.id;
-            m.poste=$scope.newMembre.poste.id;
-
-            Membres.post(m).then(function(m){
+            Membres.post(angular.copy($scope.newMembre)).then(function(m){
                 $scope.membres.push($scope.newMembre);
                 $scope.newMembre = {};
             });
@@ -41,6 +29,7 @@ app.controller('MembreController',['$scope','Quartiers','Postes','Membres','Comm
 
     $scope.editMembre= function(membre){
         $scope.newMembre = membre;
+        $scope.commune = membre.quartier.commune;
         $scope.method = "PUT";
     };
 
