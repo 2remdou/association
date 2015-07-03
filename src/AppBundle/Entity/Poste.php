@@ -42,7 +42,13 @@ class Poste
      */
     private $membres;
 
-
+    /**
+     * @var integer
+     * @ORM\Column(name="ordreHierarchie",type="integer")
+     * @Expose()
+     * @SerializedName("orderHierarchie")
+     */
+    private $ordreHierarchie;
     /**
      * Get id
      *

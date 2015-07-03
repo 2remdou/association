@@ -24,6 +24,17 @@ class LoadPosteData extends AbstractFixture implements  OrderedFixtureInterface 
     {
         // TODO: Implement load() method.
         $postes = array('President','Vice-president','Secretaire','Cordinateur','membre');
+        $postes = array(
+            array(
+                'libellePoste' => 'President',
+                'ordreHierarchie' => 0
+            ),
+            array(
+                'libellePoste' => 'President',
+                'ordreHierarchie' => 0
+            ),
+
+        );
         foreach($postes as $key => $p ){
             $poste = new Poste();
             $poste->setLibellePoste($p);
