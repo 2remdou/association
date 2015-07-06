@@ -21,3 +21,12 @@ app_membre:
     resource: app.membre
     type: sylius.api
     prefix: /api
+
+app_organigramme:
+    path: /api/organigrammes/
+    methods: [GET]
+    defaults:
+        _controller: app.controller.membre:indexAction
+        _sylius:
+            repository:
+                method: findByPoste

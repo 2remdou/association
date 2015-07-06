@@ -28,6 +28,16 @@ app.config(function(RestangularProvider){
                 elem.quartier=idQuartier;
                 elem.poste=idPoste;
             }
+            else if(path==='postes'){
+                var idSuperieur = elem.superieur.id;
+
+                delete elem.superieur;
+                delete elem.ordreHierarchie;
+                delete elem.subordonnees;
+                delete elem.membres;
+
+                elem.superieur=idSuperieur;
+            }
         }
 /*
         else if (operation === "post"){

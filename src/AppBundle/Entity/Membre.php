@@ -81,13 +81,6 @@ class Membre
     private $quartier;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Membre")
-     * @ORM\JoinColumn(referencedColumnName="id")
-     * @Expose()
-     * @SerializedName("superieur")
-     */
-    private $superieur;
-    /**
      * Get id
      *
      * @return integer 

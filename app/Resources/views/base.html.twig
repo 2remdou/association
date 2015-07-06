@@ -7,6 +7,7 @@
             '@AppBundle/Resources/public/js/bower_components/bootstrap/dist/css/bootstrap.min.css'
             '@AppBundle/Resources/public/js/app/styles/main.css'
             '@AppBundle/Resources/public/js/app/styles/custom.css'
+            '@AppBundle/Resources/public/js/app/styles/jquery.orgchart.css'
             output='css/compiled/main.css'
             %}
             <link rel="stylesheet" href="{{ asset_url }}"/>
@@ -19,9 +20,12 @@
                 '@AppBundle/Resources/public/js/bower_components/lodash/lodash.min.js'
                 '@AppBundle/Resources/public/js/bower_components/restangular/dist/restangular.min.js'
                 '@AppBundle/Resources/public/js/bower_components/bootstrap/dist/js/bootstrap.min.js'
+                '@AppBundle/Resources/public/js/app/scripts/polyfil.js'
                 '@AppBundle/Resources/public/js/app/scripts/app.js'
                 '@AppBundle/Resources/public/js/app/scripts/routing.js'
                 '@AppBundle/Resources/public/js/app/scripts/configRestangular.js'
+                '@AppBundle/Resources/public/js/jquery.orgchart.js'
+                '@AppBundle/Resources/public/js/app/scripts/directives/orgchart.js'
                 '@AppBundle/Resources/public/js/app/scripts/services/Communes.js'
                 '@AppBundle/Resources/public/js/app/scripts/services/Postes.js'
                 '@AppBundle/Resources/public/js/app/scripts/services/Quartiers.js'
@@ -32,6 +36,9 @@
                 '@AppBundle/Resources/public/js/app/scripts/controllers/PosteController.js'
                 '@AppBundle/Resources/public/js/app/scripts/controllers/MembreController.js'
                 '@AppBundle/Resources/public/js/app/scripts/controllers/MembreByLocaliteController.js'
+                '@AppBundle/Resources/public/js/app/scripts/controllers/OrganigrammeController.js'
+                '@AppBundle/Resources/public/js/app/scripts/directives/direcPere.js'
+                '@AppBundle/Resources/public/js/app/scripts/directives/direcFils.js'
 
 
             output='js/compiled/main.js'

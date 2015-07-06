@@ -12,4 +12,10 @@ use Doctrine\ORM\EntityRepository;
  */
 class MembreRepository extends EntityRepository
 {
+    public function findByPoste(){
+        $qb = $this->createQueryBuilder('m');
+/*            ->leftJoin('m.poste','poste')
+            ->orderBy('m.poste.ordreHierarchie','DESC');*/
+        return $qb->getQuery()->getResult();
+    }
 }
