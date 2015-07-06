@@ -1,25 +1,12 @@
 <!--<ul id="basic-chart-source" class="hide">-->
 <ul id="basic-chart-source">
+    <li>{{racine.libellePoste}}
+        <ul direc-racine="" racine="racine"></ul>
+    </li>
+
+<!--
     <li ng-repeat="p in postes| filter:{ordreHierarchie:0}">{{p.libellePoste}}
         <ul direc-pere="" peres="p.subordonnees"></ul>
-<!--
-        <ul>
-            <li ng-repeat="subordonnee in p.subordonnees">{{subordonnee.libellePoste}}
-                <ul>
-                    <li ng-repeat="s in subordonnee.subordonnees">{{s.libellePoste}}
-                </ul>
-            </li>
-        </ul>
--->
-
     </li>
-</ul>
-<!--
-    <ul id="basic-chart-source" ng-repeat="p in postes| orderBy:'ordreHierarchie'">
-        <li>{{p.libellePoste}}
-            <ul ng-repeat="membre in p.membres">
-                <li>{{membre.nomMembre}}</li>
-            </ul>
-        </li>
-    </ul>
 -->
+</ul>

@@ -23,10 +23,10 @@ app_membre:
     prefix: /api
 
 app_organigramme:
-    path: /api/organigrammes/
+    path: /api/postes/node/{node}
     methods: [GET]
     defaults:
-        _controller: app.controller.membre:indexAction
+        _controller: app.controller.poste:indexAction
         _sylius:
-            repository:
-                method: findByPoste
+            criteria:
+                ordreHierarchie: $node

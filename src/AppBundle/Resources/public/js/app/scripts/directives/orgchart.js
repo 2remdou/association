@@ -14,11 +14,11 @@ app.directive('orgchart',['$compile','Postes','$timeout',function($compile,Poste
             interactive: '=',
             showLevels : '=',
             clicked    : '=',
-            postes     : '='
+            racine     : '='
         },
         templateUrl: 'views/templateOrganigramme.html',
         link: function(scope, element, attrs) {
-            scope.postes = Postes.getList().$object;
+
                 var target = $(element);
                 var source = $('#' + scope.source);
                 var options = {
@@ -34,11 +34,10 @@ app.directive('orgchart',['$compile','Postes','$timeout',function($compile,Poste
                 source.orgChart(options);
             });
 */
-/*
             $timeout(function(){
                 source.orgChart(options);
-            },3000);
-*/
+                //console.log(scope.racine);
+            },1000);
 
         }
     }
