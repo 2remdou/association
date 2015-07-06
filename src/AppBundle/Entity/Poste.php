@@ -174,6 +174,8 @@ class Poste
     public function preUpdate(){
         if($this->getSuperieur() !== null){
             $this->setOrdreHierarchie($this->getSuperieur()->getOrdreHierarchie()+1);
+        }else{
+            $this->setOrdreHierarchie(0);
         }
     }
 
@@ -183,6 +185,8 @@ class Poste
     public function prePresist(){
         if($this->getSuperieur() !==null){
             $this->setOrdreHierarchie($this->getSuperieur()->getOrdreHierarchie()+1);
+        }else{
+            $this->setOrdreHierarchie(0);
         }
     }
 

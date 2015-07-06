@@ -29,14 +29,17 @@ app.config(function(RestangularProvider){
                 elem.poste=idPoste;
             }
             else if(path==='postes'){
-                var idSuperieur = elem.superieur.id;
+                if(elem.superieur){
+                    var idSuperieur = elem.superieur.id;
 
-                delete elem.superieur;
-                delete elem.ordreHierarchie;
-                delete elem.subordonnees;
-                delete elem.membres;
+                    delete elem.superieur;
+                    delete elem.ordreHierarchie;
+                    delete elem.subordonnees;
+                    delete elem.membres;
 
-                elem.superieur=idSuperieur;
+                    elem.superieur=idSuperieur;
+
+                }
             }
         }
 /*
