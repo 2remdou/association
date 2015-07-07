@@ -43,7 +43,18 @@
     </div>
 
     <div class="container">
+        {% verbatim %}
+            <direc-message>
+                <div ng-show="displayMessage" class="alert alert-dismissible alert-{{ type }}">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <h4>{{ header }}</h4>
+                    <p> {{ content }}</p>
+                </div>
+            </direc-message>
+
+        {% endverbatim %}
         <div ng-view></div>
     </div>
+
 
 {% endblock body %}

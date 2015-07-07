@@ -2,7 +2,7 @@
  * Created by delphinsagno on 28/06/15.
  */
 
-app.config(function(RestangularProvider){
+app.config(['RestangularProvider',function(RestangularProvider,$rootScope){
     //RestangularProvider.setBaseUrl('/association/web/api');
     RestangularProvider.setBaseUrl('app_dev.php/api/');
     RestangularProvider.setRequestInterceptor(function(elem, operation,path) {
@@ -42,26 +42,10 @@ app.config(function(RestangularProvider){
                 }
             }
         }
-/*
-        else if (operation === "post"){
-
-            if(path==="quartiers"){
-                var idCommune = elem.commune.id;
-                delete elem.commune;
-                elem.commune= idCommune;
-            }
-            else if(path==="membres"){
-                var idQuartier = elem.quartier.id;
-                var idPoste = elem.poste.id;
-
-                delete elem.quartier;
-                delete elem.poste;
-
-                elem.quartier=idQuartier;
-                elem.poste=idPoste;
-            }
-        }
-*/
         return elem;
-    })
-});
+    });
+
+    RestangularProvider.setErrorInterceptor(function(response, deferred, responseHandler){
+        $rootScope.displayMessage=true;
+    });
+}]);
