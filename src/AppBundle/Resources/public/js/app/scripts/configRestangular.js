@@ -2,7 +2,7 @@
  * Created by delphinsagno on 28/06/15.
  */
 
-app.config(['RestangularProvider',function(RestangularProvider,$rootScope){
+app.config(['RestangularProvider',function(RestangularProvider){
     //RestangularProvider.setBaseUrl('/association/web/api');
     RestangularProvider.setBaseUrl('app_dev.php/api/');
     RestangularProvider.setRequestInterceptor(function(elem, operation,path) {
@@ -45,7 +45,23 @@ app.config(['RestangularProvider',function(RestangularProvider,$rootScope){
         return elem;
     });
 
+/*
     RestangularProvider.setErrorInterceptor(function(response, deferred, responseHandler){
-        $rootScope.displayMessage=true;
+        var rootScope = angular.element(document).injector().get('$rootScope');
+        rootScope.displayMessage=true;
     });
+*/
 }]);
+app.run(function($injector,Restangular,$timeout){
+    Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
+        var rootScope = $injector.get('$rootScope');
+        rootScope.displayMessage=true;
+        rootScope.content = response.data.message;
+        rootScope.type = "danger";
+        $timeout(function(){
+            rootScope.displayMessage=false;
+            rootScope.content = "";
+        },2000)
+
+    });
+});

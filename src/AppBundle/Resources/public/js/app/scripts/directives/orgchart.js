@@ -36,7 +36,6 @@ app.directive('orgchart',['$compile','Postes','$timeout',function($compile,Poste
 */
             $timeout(function(){
                 source.orgChart(options);
-                //console.log(scope.racine);
             },1000);
 
         }

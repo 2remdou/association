@@ -8,6 +8,6 @@
  * Controller of the jsApp
  */
 
-  app.controller('MainController', function ($scope) {
-    $scope.nom = "toure";
-  });
+  app.controller('MainController', ['$scope','$rootScope','Restangular',function ($scope,$rootScope,Restangular) {
+
+  }]);

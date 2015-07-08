@@ -3,7 +3,6 @@
  */
 
 app.controller('CommuneController', ['$scope','Communes',function ($scope,Communes) {
-
     $scope.communes = Communes.getList().$object;
 
     $scope.save = function(){

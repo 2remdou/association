@@ -9,7 +9,6 @@ app.directive('direcNode',['$compile','$timeout',function($compile,$timeout){
            items : '='
        },
        link : function(scope,element,attr){
-               console.log(scope.items);
                if(angular.isArray(scope.items)){
                    element.append("<li ng-repeat='p in items'>{{p.libellePoste}}<ul direc-node=''  items='p.subordonnees'></ul></li>");
                }
