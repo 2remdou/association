@@ -10,7 +10,6 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use FOS\RestBundle\Controller\Annotations\Route;
 
 
@@ -21,6 +20,6 @@ class AssociationController extends ApiController {
      */
     public function indexAction()
     {
-        return $this->render('AppBundle::index.html.twig');
+        return $this->render('AppBundle::index1.html.twig');
     }
 } 

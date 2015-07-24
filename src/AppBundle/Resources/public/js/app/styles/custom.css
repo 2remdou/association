@@ -1,4 +1,5 @@
-form[name="formMembre"]
+#logo
 {
-    /*background-color: red;*/
+    width: 60px;
+    height: 50px;
 }
