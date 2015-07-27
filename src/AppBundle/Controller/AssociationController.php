@@ -20,6 +20,6 @@ class AssociationController extends ApiController {
      */
     public function indexAction()
     {
-        return $this->render('AppBundle::index1.html.twig');
+        return $this->render('AppBundle::index.html.twig');
     }
 } 
